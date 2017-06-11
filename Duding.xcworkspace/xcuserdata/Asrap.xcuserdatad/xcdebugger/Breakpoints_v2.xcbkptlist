@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Duding/NewStudy.swift"
+            timestampString = "518733193.879373"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "423"
+            endingLineNumber = "423">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Duding/PostTableViewCell.swift"
+            timestampString = "518858144.50646"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "PostTableViewCell"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Duding.PostTableViewCell.postRef.getter : Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.DatabaseReference&gt;"
+                  moduleName = "Duding"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Asrap/Google%20Drive/Research%20Project/Duding/Duding/PostTableViewCell.swift"
+                  timestampString = "518858145.097608"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "35">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Duding.PostTableViewCell.postRef.setter : Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.DatabaseReference&gt;"
+                  moduleName = "Duding"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Asrap/Google%20Drive/Research%20Project/Duding/Duding/PostTableViewCell.swift"
+                  timestampString = "518858145.102763"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "65">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Duding.PostTableViewCell.init (style : __C.UITableViewCellStyle, reuseIdentifier : Swift.Optional&lt;Swift.String&gt;) -&gt; Duding.PostTableViewCell"
+                  moduleName = "Duding"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Asrap/Google%20Drive/Research%20Project/Duding/Duding/PostTableViewCell.swift"
+                  timestampString = "518858145.105269"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "552">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Duding.PostTableViewCell.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;Duding.PostTableViewCell&gt;"
+                  moduleName = "Duding"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Asrap/Google%20Drive/Research%20Project/Duding/Duding/PostTableViewCell.swift"
+                  timestampString = "518858145.107501"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "473">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

@@ -7,6 +7,12 @@
 //
 
 import UIKit
+import FBSDKCoreKit
+import Firebase
+import FBSDKLoginKit
+import GooglePlaces
+import GoogleMaps
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,8 +21,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        UINavigationBar.appearance().barTintColor = UIColor.orange
+        UINavigationBar.appearance().tintColor = UIColor.orange
+
+        
+        
+        FirebaseApp.configure()
+
+    FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        
+    GMSPlacesClient.provideAPIKey("AIzaSyBxcooAZk2AisPgLAr8_ZRw6LgGBWAjz64")
+        
+    GMSServices.provideAPIKey("AIzaSyBxcooAZk2AisPgLAr8_ZRw6LgGBWAjz64")
+        
+        
+        
         return true
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        let handled = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String!, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
+        
+        return handled
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -40,6 +67,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError?) {
+        if let error = error {
+            print(error.localizedDescription)
+            return
+        }
+        // ...
+        let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+        
+        Auth.auth().signIn(with: credential) { (user, error) in
+            // ...
+            if error != nil {
+                // ...
+                return
+            }
+        }
+        
+    }
+    
+    
+    
 
 
 }
