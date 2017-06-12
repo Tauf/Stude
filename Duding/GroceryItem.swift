@@ -1,74 +1,301 @@
-/*
- * Copyright (c) 2015 Razeware LLC
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- */
+
 
 import Foundation
 import Firebase
 
 struct GroceryItem {
-  
-  let key: String
-  var name: String
-  var addedByUser: String
-  var ref: DatabaseReference?
-  var completed: Bool
+    var ref: DatabaseReference?
+    let key: String
     
   
-  init(name: String, addedByUser: String, completed: Bool, key: String = "") {
-    self.key = key
-    self.name = name
-    self.addedByUser = addedByUser
-    self.completed = completed
-    self.ref = nil
-  }
-  
-  init(snapshot: DataSnapshot) {
-    key = snapshot.key
-    let snapshotValue = snapshot.value as! [String: AnyObject]
-    name="empty"
-    addedByUser = "emptu"
-    completed = true
+    var titleField: String
     
-    for childSnap in  snapshot.children.allObjects {
-        let snap = childSnap as! DataSnapshot
-        if let snapshotValue = snapshot.value as? NSDictionary, let snapVal = snapshotValue[snap.key] as? AnyObject {
-            print("val" , snapVal)
-            name = snapshotValue["name"] as! String
-            addedByUser = snapshotValue["addedByUser"] as! String
-            completed = snapshotValue["completed"] as! Bool
-            ref = snapshot.ref
-            
-        }
-    }
+    var locationNameField: String
     
+    
+    var rankField: String
+    
+    var timeField: String
+    
+    var deadlineField: String
+    
+    
+    var priceField: String
+    
+    var eventDateField: String
+    
+    var approvedRequestsCountField: String
+    
+    
+    //var postImage: UIImageView!
+    
+    //var creatorImage: UIImageView!
+    
+    //var creatorRating: UIImageView!
+    
+    
+    var creatorNameField: String
+    
+    var creatorIDField: String
+    
+    var attendiesField: String
+    
+    var shortDescriptionField: String
+    
+    var startTimeField: String
+    
+    var endTimeField: String
+    
+    var addressField: String
+    
+    var availableSpotsField: String
+    
+    var longDescriptionField: String
     
 
-  }
-  
-  func toAnyObject() -> Any {
-    return [
-      "name": name,
-      "addedByUser": addedByUser,
-      "completed": completed
+    
+    init(creatorNameField: String,
+         titleField: String,
+         
+         locationNameField: String,
+         
+         
+         rankField: String,
+         
+         timeField: String,
+         
+         deadlineField: String,
+         
+         
+         priceField: String,
+         
+         eventDateField: String,
+         
+         approvedRequestsCountField: String,
+         
+         creatorID: String,
+         
+         attendiesField: String,
+         
+         shortDescriptionField: String,
+         
+         creatorIDField: String,
+         
+         startTimeField: String,
+         
+         endTimeField: String,
+         
+         addressField: String,
+         
+         availableSpots: String,
+         
+         longDescriptionField: String,
+         
+         availableSpotsField: String,
+         
+         
+        
+         key: String = "") {
+        self.key = key
+        self.creatorNameField = creatorNameField
+        
+        
+        
+        
+        self.titleField = titleField
+        
+        self.locationNameField = locationNameField
+        
+        
+        self.rankField = rankField
+        
+        self.timeField = timeField
+        
+        self.deadlineField = deadlineField
+        
+        
+        self.priceField = priceField
+        
+        self.eventDateField = eventDateField
+        
+        self.approvedRequestsCountField = approvedRequestsCountField
+        
+        self.creatorNameField = creatorNameField
+        
+        self.creatorIDField = creatorIDField
+        
+        self.attendiesField = attendiesField
+        
+        self.shortDescriptionField = shortDescriptionField
+        
+        self.longDescriptionField = longDescriptionField
+        
+        self.startTimeField = startTimeField
+        
+        self.endTimeField = endTimeField
+        
+        self.addressField = addressField
+        
+        self.availableSpotsField = availableSpotsField
+        
+        self.ref = nil
+    }
+    
+    init(snapshot: DataSnapshot) {
+        key = snapshot.key
+        creatorNameField = "empty"
+        
+        
+        titleField = "empty"
+        
+        locationNameField = "empty"
+        
+        
+        rankField = "empty"
+        
+        timeField = "empty"
+        
+        deadlineField = "empty"
+        
+        
+        priceField = "empty"
+        
+        eventDateField = "empty"
+        
+        approvedRequestsCountField = "empty"
+        
+        
+        creatorIDField = "empty"
+        
+        attendiesField = "empty"
+        
+        shortDescriptionField = "empty"
+        
+        creatorIDField = "empty"
+        
+        startTimeField = "empty"
+        
+        endTimeField = "empty"
+        
+        addressField = "empty"
+        
+        availableSpotsField = "empty"
+        
+        longDescriptionField = "empty"
+        
+        availableSpotsField = "empty"
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        for childSnap in  snapshot.children.allObjects {
+            let snap = childSnap as! DataSnapshot
+            if let snapshotValue = snapshot.value as? NSDictionary, let snapVal = snapshotValue[snap.key] as? AnyObject {
+                
+                
+                
+                titleField = snapshotValue["titleField"] as! String
+                
+                locationNameField = snapshotValue["locationNameField"] as! String
+                
+                
+                rankField = snapshotValue["rankField"] as! String
+                
+                timeField = snapshotValue["timeField"] as! String
+                
+                deadlineField = snapshotValue["deadlineField"] as! String
+                
+                
+                priceField = snapshotValue["priceField"] as! String
+                
+                eventDateField = snapshotValue["eventDateField"] as! String
+                
+                approvedRequestsCountField = snapshotValue["approvedRequestsCountField"] as! String
+                
+                
+                // postImage: UIImageView!
+                
+                // creatorImage: UIImageView!
+                
+                // creatorRating: UIImageView!
+                
+                
+                creatorNameField = snapshotValue["creatorNameField"] as! String
+                
+                creatorIDField = snapshotValue["creatorIDField"] as! String
+                
+                attendiesField = snapshotValue["attendiesField"] as! String
+                
+                shortDescriptionField = snapshotValue["shortDescriptionField"] as! String
+                
+                longDescriptionField = snapshotValue["longDescriptionField"] as! String
+                
+                startTimeField = snapshotValue["startTimeField"] as! String
+                
+                endTimeField = snapshotValue["endTimeField"] as! String
+                
+                addressField = snapshotValue["addressField"] as! String
+                
+                availableSpotsField = snapshotValue["availableSpotsField"] as! String
+                
+                
+                
+                
+                ref = snapshot.ref
+            }
+        }
+        
+        
+        
+    }
+    
+    func toAnyObject() -> Any {
+        return [
+
+             "titleField" : titleField,
+            
+             "locationNameField" : locationNameField,
+            
+            
+             "rankField" : rankField,
+            
+             "timeField" : timeField,
+            
+             "deadlineField" : deadlineField,
+            
+            
+             "priceField" : priceField,
+            
+             "eventDateField" : eventDateField,
+            
+             "approvedRequestsCountField" : approvedRequestsCountField,
+            
+            
+             "creatorNameField" : creatorNameField,
+            
+             "creatorIDField" : creatorIDField,
+            
+             "attendiesField" : attendiesField,
+            
+             "shortDescriptionField" : shortDescriptionField,
+            
+             "longDescriptionField" : longDescriptionField,
+            
+             "startTimeField" : startTimeField,
+            
+             "endTimeField" : endTimeField,
+            
+             "addressField" : addressField,
+            
+             "availableSpotsField" : availableSpotsField,
+        
     ]
-  }
-  
+    
+    }
+    
 }

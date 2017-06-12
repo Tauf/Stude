@@ -1,25 +1,6 @@
 //
 //  MainTableViewController.swift
 //
-// Copyright (c) 21/12/15. Ramotion Inc. (http://ramotion.com)
-//
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
-//
-// The above copyright notice and this permission notice shall be included in
-// all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-// THE SOFTWARE.
 
 import UIKit
 import FoldingCell
@@ -39,7 +20,7 @@ class MainTableViewController: UITableViewController {
 
     
     var items: [GroceryItem] = []
-    let ref = Database.database().reference(withPath: "grocery-items")
+    let ref = Database.database().reference(withPath: "studyGroups/activePosts")
     let usersRef = Database.database().reference(withPath: "online")
     var user: User!
     var userCountBarButtonItem: UIBarButtonItem!
@@ -49,7 +30,7 @@ class MainTableViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    
+
     
     ref.queryOrdered(byChild: "completed").observe(.value, with: { snapshot in
         var newItems: [GroceryItem] = []
@@ -102,11 +83,10 @@ extension MainTableViewController {
       cell.selectedAnimation(true, animated: false, completion: nil)
     }
     
-    cell.number = indexPath.row
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "FoldingCell", for: indexPath) as! FoldingCell
+    let cell = tableView.dequeueReusableCell(withIdentifier: "FoldingCell", for: indexPath) as! DemoCell
     let durations: [TimeInterval] = [0.26, 0.2, 0.2]
     cell.durationsForExpandedState = durations
     cell.durationsForCollapsedState = durations
@@ -114,10 +94,58 @@ extension MainTableViewController {
     
     let groceryItem = items[indexPath.row]
     
-    cell.textLabel?.text = groceryItem.name
-    cell.detailTextLabel?.text = groceryItem.addedByUser
+    //cell.textLabel?.text = groceryItem.creator
+
+ 
+    cell.titleField?.text = groceryItem.titleField
+    
+    cell.titleField2?.text = groceryItem.titleField
+    
+    cell.locationNameField?.text = groceryItem.locationNameField
+    
+    cell.locationNameField2?.text = groceryItem.locationNameField
+    
+    cell.rankField?.text = groceryItem.rankField
+    
+   //cell.relativeDayField?.text = groceryItem.creator
+    
+    cell.timeField?.text = groceryItem.timeField
+    
+   cell.deadlineField?.text = groceryItem.deadlineField
+    
+    cell.deadlineField2?.text = groceryItem.deadlineField
+    
+    cell.priceField?.text = groceryItem.priceField
+    
+    cell.priceField2?.text = groceryItem.priceField
     
     
+    cell.eventDateField?.text = groceryItem.eventDateField
+    
+    cell.approvedRequestsCountField?.text = groceryItem.approvedRequestsCountField
+    
+    cell.approvedRequestsField2?.text = groceryItem.approvedRequestsCountField
+    
+    //cell.postImage?.text = groceryItem.creator
+    
+    //cell.creatorImage?.text = groceryItem.creator
+    
+    //cell.creatorRating?.text = groceryItem.creator
+    
+    cell.attendiesField?.text = groceryItem.attendiesField
+    
+    cell.shortDescriptionField?.text = groceryItem.shortDescriptionField
+    
+    cell.startTimeField?.text = groceryItem.startTimeField
+    
+    cell.endTimeField?.text = groceryItem.endTimeField
+    
+    cell.addressField?.text = groceryItem.addressField
+    
+    cell.creatorNameField?.text = groceryItem.creatorNameField
+    //cell.leftSpotsField?.text = groceryItem.titleField
+    
+
 
     
     

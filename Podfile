@@ -17,5 +17,6 @@ target 'Duding' do
   pod 'GooglePlacePicker'
   pod 'GoogleMaps'
   pod 'FoldingCell'
+  pod 'Eureka'
 
 end

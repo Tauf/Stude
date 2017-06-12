@@ -9,18 +9,57 @@
 import UIKit
 import FoldingCell
 
-class DemoCell: FoldingCell {
+class DemoCell:  FoldingCell  {
   
-  @IBOutlet weak var closeNumberLabel: UILabel!
-  @IBOutlet weak var openNumberLabel: UILabel!
-  
-  var number: Int = 0 {
-    didSet {
-      closeNumberLabel.text = String(number)
-      openNumberLabel.text = String(number)
-    }
-  }
-  
+
+    @IBOutlet weak var titleField: UILabel!
+    
+    @IBOutlet weak var titleField2: UILabel!
+    
+    @IBOutlet weak var locationNameField: UILabel!
+    
+    @IBOutlet weak var locationNameField2: UILabel!
+    
+    @IBOutlet weak var rankField: UILabel!
+    
+    @IBOutlet weak var relativeDayField: UILabel!
+    
+    @IBOutlet weak var timeField: UILabel!
+    
+    @IBOutlet weak var deadlineField: UILabel!
+    
+    @IBOutlet weak var deadlineField2: UILabel!
+    
+    @IBOutlet weak var priceField: UILabel!
+    
+    @IBOutlet weak var priceField2: UILabel!
+    
+    @IBOutlet weak var eventDateField: UILabel!
+    
+    @IBOutlet weak var approvedRequestsCountField: UILabel!
+    
+    @IBOutlet weak var approvedRequestsField2: UILabel!
+    
+    @IBOutlet weak var postImage: UIImageView!
+    
+    @IBOutlet weak var creatorImage: UIImageView!
+    
+    @IBOutlet weak var creatorRating: UIImageView!
+    
+    @IBOutlet weak var attendiesField: UILabel!
+    
+    @IBOutlet weak var shortDescriptionField: UILabel!
+    
+    @IBOutlet weak var startTimeField: UILabel!
+    
+    @IBOutlet weak var endTimeField: UILabel!
+    
+    @IBOutlet weak var addressField: UILabel!
+    
+    @IBOutlet weak var leftSpotsField: UILabel!
+    
+    @IBOutlet weak var creatorNameField: UILabel!
+    
   override func awakeFromNib() {
     foregroundView.layer.cornerRadius = 10
     foregroundView.layer.masksToBounds = true
@@ -40,5 +79,7 @@ extension DemoCell {
   @IBAction func buttonHandler(_ sender: AnyObject) {
     print("tap")
   }
+    
+
   
 }
