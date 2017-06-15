@@ -73,7 +73,6 @@ struct GroceryItem {
          
          approvedRequestsCountField: String,
          
-         creatorID: String,
          
          attendiesField: String,
          
@@ -86,8 +85,6 @@ struct GroceryItem {
          endTimeField: String,
          
          addressField: String,
-         
-         availableSpots: String,
          
          longDescriptionField: String,
          
