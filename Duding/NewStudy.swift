@@ -11,9 +11,12 @@ import UIKit
 import DatePickerDialog
 import IBAnimatable
 import UIKit
+
 import GooglePlacePicker
 import GoogleMaps
 import GooglePlaces
+
+
 
 
 class NewStudy: UIViewController {
@@ -126,22 +129,19 @@ class NewStudy: UIViewController {
 //                self.locationField.setTitle("select", for: .normal)
 //            }
 //        })
+        print("tapped")
         
-        let window = UIWindow(frame: UIScreen.main.bounds)
-        let rootViewController = PickAPlaceViewController()
-        let splitPaneViewController = SplitPaneViewController(rootViewController: rootViewController)
+        let config = GMSPlacePickerConfig(viewport: nil)
+        let placePicker = GMSPlacePickerViewController(config: config)
+        placePicker.delegate = self as! GMSPlacePickerViewControllerDelegate
         
-        // Wrap the split pane controller in a inset controller to get the map displaying behind our
-        // content on iPad devices.
-        let mapController = BackgroundMapViewController()
-        rootViewController.mapViewController = mapController
-        let insetController = InsetViewController(backgroundViewController: mapController,
-                                                  contentViewController: splitPaneViewController)
-        window.rootViewController = insetController
+        placePicker.modalPresentationStyle = .popover
+        placePicker.popoverPresentationController?.sourceView = locationField
+        placePicker.popoverPresentationController?.sourceRect = locationField.bounds
         
-        // Make the window visible and allow the app to continue initialization.
-        window.makeKeyAndVisible()
-        //self.window = window
+        // Display the place picker. This will call the delegate methods defined below when the user
+        // has made a selection.
+        self.present(placePicker, animated: true, completion: nil)
 
         
     }

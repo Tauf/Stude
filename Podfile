@@ -18,5 +18,6 @@ target 'Duding' do
   pod 'GoogleMaps'
   pod 'FoldingCell'
   pod 'Eureka'
+  pod 'SwiftVideoBackground'
 
 end

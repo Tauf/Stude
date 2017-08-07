@@ -11,6 +11,10 @@ import Eureka
 import CoreLocation
 import UIKit
 import Firebase
+import GooglePlacePicker
+import GoogleMaps
+import GooglePlaces
+
 
 typealias Emoji = String
 let 👦🏼 = "👦🏼", 🍐 = "🍐", 💁🏻 = "💁🏻", 🐗 = "🐗", 🐼 = "🐼", 🐻 = "🐻", 🐖 = "🐖", 🐡 = "🐡"
@@ -20,12 +24,15 @@ let 👦🏼 = "👦🏼", 🍐 = "🍐", 💁🏻 = "💁🏻", 🐗 = "🐗", 
 class newPost:FormViewController {
     
     
-    let ref = Database.database().reference(withPath: "studyGroups/activePosts")
+    let ref = Database.database().reference(withPath: "/")
     
+    var placesClient: GMSPlacesClient!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        placesClient = GMSPlacesClient.shared()
         
         URLRow.defaultCellUpdate = { cell, row in cell.textField.textColor = .orange }
         LabelRow.defaultCellUpdate = { cell, row in cell.detailTextLabel?.textColor = .orange  }
@@ -41,7 +48,7 @@ class newPost:FormViewController {
                 $0.placeholder = "Set A Title for the Post"
             }
             
-
+            
             
             
             <<< DateRow("eventDateTag") {
@@ -62,8 +69,8 @@ class newPost:FormViewController {
                         endRow.cell!.backgroundColor = .white
                         endRow.updateCell()
                     }
-                }
-
+            }
+            
             
             <<< TimeRow("endTimeTag"){
                 $0.title = "End Time"
@@ -78,8 +85,8 @@ class newPost:FormViewController {
                         row.cell!.backgroundColor = .white
                     }
                     row.updateCell()
-                }
-
+            }
+            
             
             
             <<< SwitchRow("publicTag") {
@@ -105,13 +112,47 @@ class newPost:FormViewController {
             //        }
             
             
-            <<< LocationRow(){
-                $0.title = "Meeting Place"
-                $0.value = CLLocation(latitude: 37.872488, longitude: -122.260841)
-            }
+            //            <<< LocationRow("locationTag"){
+            //                $0.title = "Meeting Place"
+            //                $0.value = CLLocation(latitude: 37.872488, longitude: -122.260841)
+            //            }
+            
+            
+            
+            
             
             <<< ImageRow(){
                 $0.title = "Post Background"
+            }
+            <<< ButtonRow("locationTag"){
+                $0.title = "Meeting Place"
+                $0.value = "tap to select"
+                } .onCellSelection { cell, row in
+                    
+                    
+                    let config = GMSPlacePickerConfig(viewport: nil)
+                    let placePicker = GMSPlacePickerViewController(config: config)
+                    self.present(placePicker, animated: true, completion: nil)
+                    
+                    //                    self.placesClient.currentPlace(callback: { (placeLikelihoodList, error) -> Void in
+                    //                        if let error = error {
+                    //                            print("Pick Place error: \(error.localizedDescription)")
+                    //                            return
+                    //                        }
+                    //
+                    //
+                    //                        if let placeLikelihoodList = placeLikelihoodList {
+                    //                            let place = placeLikelihoodList.likelihoods.first?.place
+                    //                            if let place = place {
+                    //                                row.title = place.name
+                    //
+                    //                                //                                self.addressLabel.text = place.formattedAddress?.components(separatedBy: ", ")
+                    //                                //                                    .joined(separator: "\n")
+                    //                            }
+                    //                        }
+                    //                    })
+                    //
+                    row.reload() // or row.updateCell()
             }
             
             <<< TextRow("shortDescriptionTag") {
@@ -122,6 +163,12 @@ class newPost:FormViewController {
             <<< TextAreaRow("longDescriptionTag") {
                 $0.placeholder = "Details"
                 $0.textAreaHeight = .dynamic(initialTextViewHeight: 110)
+            }
+            
+            <<< DateRow("deadlineTag") {
+                
+                $0.value = Date()
+                $0.title = "RSVP Deadline"
             }
             
             <<< MultipleSelectorRow<Emoji>() {
@@ -176,30 +223,40 @@ class newPost:FormViewController {
         
         row3 = self.form.rowBy(tag: "eventDateTag")
         let eventDateValue = row3?.value
-
+        
+        row3 = self.form.rowBy(tag: "deadlineTag")
+        let deadlineValue = row3?.value
+        
         var row4: TimeRow?
         
         row4 = self.form.rowBy(tag: "startTimeTag")
         let startTimeValue = row4?.value
-
+        
         row4 = self.form.rowBy(tag: "endTimeTag")
         let endTimeValue = row4?.value
-
+        
         var row5: TextAreaRow?
         row5 = self.form.rowBy(tag: "longDescriptionTag")
         let longDescriptionValue = row5?.value
-
         
         
-        // 2
-        let groceryItem = GroceryItem(creatorNameField: "unknown", titleField: titleValue!, locationNameField: "unknown", rankField: "unknown", timeField: "unknown", deadlineField: "unknown", priceField: "unknown", eventDateField: "\(eventDateValue!)", approvedRequestsCountField: "unknown", attendiesField: "unknown", shortDescriptionField: shortDescriptionValue!, creatorIDField: "unknown", startTimeField: "\(startTimeValue!)", endTimeField: "\(endTimeValue!)", addressField: "unknown", longDescriptionField: "\(longDescriptionValue!)", availableSpotsField: "\(availableSpotsValue!)")
+        let groceryItem : Dictionary<String, Any> = ["creatorNameField": "unknown", "titleField": titleValue!, "locationNameField": "unknown", "rankField": "unknown", "timeField": "unknown", "deadlineField": "\(deadlineValue!)", "priceField": "Free", "eventDateField": "\(eventDateValue!)", "approvedRequestsCountField": "unknown", "attendiesField": "unknown", "shortDescriptionField": "\(shortDescriptionValue!)", "creatorIDField": "unknown", "startTimeField": "\(startTimeValue!)", "endTimeField": "\(endTimeValue!)", "addressField": "unknown", "longDescriptionField": "\(longDescriptionValue!)", "availableSpotsField": "\(availableSpotsValue!)"]
         
         
-        // 3
-        let groceryItemRef = self.ref.child("IDK")
+        
+        let key = ref.child("studyGroups/activePosts/").childByAutoId().key
+        
+        let userID = Auth.auth().currentUser?.uid
+        
+        let childUpdates = ["studyGroups/activePosts/\(key)": groceryItem,
+                            "users/\(String(describing: userID))/\(key)/": groceryItem]
+        ref.updateChildValues(childUpdates)
+        
+        
+        //let groceryItemRef = self.ref.child("IDK")
         
         // 4
-        groceryItemRef.setValue(groceryItem.toAnyObject())
+        //groceryItemRef.setValue(groceryItem.toAnyObject())
         
         //self.performSegue(withIdentifier: "mySegueID", sender: nil)
         
@@ -220,6 +277,21 @@ class newPost:FormViewController {
         
     }
     
+    func placePicker(_ viewController: GMSPlacePickerViewController, didPick place: GMSPlace) {
+        // Dismiss the place picker, as it cannot dismiss itself.
+        viewController.dismiss(animated: true, completion: nil)
+        
+        print("Place name \(place.name)")
+        print("Place address \(place.formattedAddress)")
+        print("Place attributions \(place.attributions)")
+    }
+    
+    func placePickerDidCancel(_ viewController: GMSPlacePickerViewController) {
+        // Dismiss the place picker, as it cannot dismiss itself.
+        viewController.dismiss(animated: true, completion: nil)
+        
+        print("No place selected")
+    }
     
     func multipleSelectorDone(_ item:UIBarButtonItem) {
         _ = navigationController?.popViewController(animated: true)

@@ -9,16 +9,38 @@
 import UIKit
 import FBSDKLoginKit
 import Firebase
+import MapKit
 
 
+class ViewController: UIViewController, FBSDKLoginButtonDelegate, CLLocationManagerDelegate {
 
-class ViewController: UIViewController, FBSDKLoginButtonDelegate {
-
+    var locManager: CLLocationManager!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupFacebookButtons()
+        
+        locManager = CLLocationManager()
+        locManager.delegate = self
+        locManager.desiredAccuracy = kCLLocationAccuracyBest
 
+    }
+    
+    func mostraPosizione(){
+        let authorizationStatus = CLLocationManager.authorizationStatus()
+        
+        if (authorizationStatus == .authorizedWhenInUse) {
+            locManager.startUpdatingLocation()
+        } else {
+            locManager.requestWhenInUseAuthorization()
+            mostraPosizione()
+        }
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        //make sure the view is loaded first before adding subviews
+        mostraPosizione()
     }
     fileprivate func setupFacebookButtons() {
         let loginButton = FBSDKLoginButton()

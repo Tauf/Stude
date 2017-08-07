@@ -76,6 +76,7 @@ PODS:
   - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
   - GTMSessionFetcher/Core (1.1.10)
   - IBAnimatable (4.1.0)
+  - SwiftVideoBackground (0.06)
 
 DEPENDENCIES:
   - DatePickerDialog
@@ -93,6 +94,7 @@ DEPENDENCIES:
   - GooglePlacePicker
   - GooglePlaces
   - IBAnimatable
+  - SwiftVideoBackground
 
 SPEC CHECKSUMS:
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
@@ -118,7 +120,8 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMSessionFetcher: 30d874b96d0d76028f61fbd122801e3f030d47db
   IBAnimatable: 0fd2c9fd38c4798d71bcc18dbd87d473a7df2577
+  SwiftVideoBackground: 9099e41be1afad9f726cfc2014accb3330ad7ec1
 
-PODFILE CHECKSUM: c507b641fa03d355c0cce075329a43680ebc3f38
+PODFILE CHECKSUM: a2935b4f5c4835d6baed20501ea0872ddb38bb31
 
 COCOAPODS: 1.2.0

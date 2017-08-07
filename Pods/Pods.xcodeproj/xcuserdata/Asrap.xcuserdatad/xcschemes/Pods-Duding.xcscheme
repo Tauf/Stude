@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0830"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7E0EAD43439C2A3553134C1893A0152C"
+               BlueprintIdentifier = "C0743FF15E2099533C350D979994ECBB"
                BuildableName = "Pods_Duding.framework"
                BlueprintName = "Pods-Duding"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7E0EAD43439C2A3553134C1893A0152C"
+            BlueprintIdentifier = "C0743FF15E2099533C350D979994ECBB"
             BuildableName = "Pods_Duding.framework"
             BlueprintName = "Pods-Duding"
             ReferencedContainer = "container:Pods.xcodeproj">

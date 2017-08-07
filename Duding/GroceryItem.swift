@@ -3,6 +3,7 @@
 import Foundation
 import Firebase
 
+
 struct GroceryItem {
     var ref: DatabaseReference?
     let key: String
@@ -90,26 +91,19 @@ struct GroceryItem {
          
          availableSpotsField: String,
          
-         
-        
          key: String = "") {
         self.key = key
         self.creatorNameField = creatorNameField
         
-        
-        
-        
         self.titleField = titleField
         
         self.locationNameField = locationNameField
-        
         
         self.rankField = rankField
         
         self.timeField = timeField
         
         self.deadlineField = deadlineField
-        
         
         self.priceField = priceField
         
@@ -240,9 +234,6 @@ struct GroceryItem {
                 
                 availableSpotsField = snapshotValue["availableSpotsField"] as! String
                 
-                
-                
-                
                 ref = snapshot.ref
             }
         }
@@ -258,20 +249,17 @@ struct GroceryItem {
             
              "locationNameField" : locationNameField,
             
-            
              "rankField" : rankField,
             
              "timeField" : timeField,
             
              "deadlineField" : deadlineField,
             
-            
              "priceField" : priceField,
             
              "eventDateField" : eventDateField,
             
              "approvedRequestsCountField" : approvedRequestsCountField,
-            
             
              "creatorNameField" : creatorNameField,
             
