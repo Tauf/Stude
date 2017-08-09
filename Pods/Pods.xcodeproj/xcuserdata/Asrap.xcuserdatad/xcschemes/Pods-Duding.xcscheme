@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C0743FF15E2099533C350D979994ECBB"
+               BlueprintIdentifier = "A09020EDA6FD916CC6C8B6F74DA05D95"
                BuildableName = "Pods_Duding.framework"
                BlueprintName = "Pods-Duding"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C0743FF15E2099533C350D979994ECBB"
+            BlueprintIdentifier = "A09020EDA6FD916CC6C8B6F74DA05D95"
             BuildableName = "Pods_Duding.framework"
             BlueprintName = "Pods-Duding"
             ReferencedContainer = "container:Pods.xcodeproj">

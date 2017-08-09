@@ -26,11 +26,28 @@ class newPost:FormViewController {
     
     let ref = Database.database().reference(withPath: "/")
     
+    let ref2 = Database.database().reference(withPath: "/studyGroups/activePosts")
+    
+    var rankField = 0 //: Int
+
+
+    
+    
+    
+    
     var placesClient: GMSPlacesClient!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ref2.observe(.value, with: { (snapshot: DataSnapshot!) in
+            self.rankField = Int(snapshot.childrenCount) + 1
+            
+            print("avval")
+            print(self.rankField)
+        })
+        
         
         placesClient = GMSPlacesClient.shared()
         
@@ -239,8 +256,14 @@ class newPost:FormViewController {
         row5 = self.form.rowBy(tag: "longDescriptionTag")
         let longDescriptionValue = row5?.value
         
+
+
         
-        let groceryItem : Dictionary<String, Any> = ["creatorNameField": "unknown", "titleField": titleValue!, "locationNameField": "unknown", "rankField": "unknown", "timeField": "unknown", "deadlineField": "\(deadlineValue!)", "priceField": "Free", "eventDateField": "\(eventDateValue!)", "approvedRequestsCountField": "unknown", "attendiesField": "unknown", "shortDescriptionField": "\(shortDescriptionValue!)", "creatorIDField": "unknown", "startTimeField": "\(startTimeValue!)", "endTimeField": "\(endTimeValue!)", "addressField": "unknown", "longDescriptionField": "\(longDescriptionValue!)", "availableSpotsField": "\(availableSpotsValue!)"]
+        
+        print("dovvom")
+        print(rankField)
+        
+        let groceryItem : Dictionary<String, Any> = ["creatorNameField": "unknown", "titleField": titleValue!, "locationNameField": "unknown", "rankField":"\(rankField)" , "timeField": "unknown", "deadlineField": "\(deadlineValue!)", "priceField": "Free", "eventDateField": "\(eventDateValue!)", "approvedRequestsCountField": "unknown", "attendiesField": "unknown", "shortDescriptionField": "\(shortDescriptionValue!)", "creatorIDField": "unknown", "startTimeField": "\(startTimeValue!)", "endTimeField": "\(endTimeValue!)", "addressField": "unknown", "longDescriptionField": "\(longDescriptionValue!)", "availableSpotsField": "\(availableSpotsValue!)"]
         
         
         

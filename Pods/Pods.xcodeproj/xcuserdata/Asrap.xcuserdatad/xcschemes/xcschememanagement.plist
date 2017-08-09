@@ -34,6 +34,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>FSCalendar.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>FacebookCore.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -79,6 +84,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>nanopb.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -93,11 +103,6 @@
 			<true/>
 		</dict>
 		<key>332F91393FB1DE033D370B4CEDDD5FCF</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>3C1FDC814FFA107622B642BDCD75EA86</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -132,6 +137,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>A09020EDA6FD916CC6C8B6F74DA05D95</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>A7FEAA14E89971698ACA148F7F7202F2</key>
 		<dict>
 			<key>primary</key>
@@ -147,12 +157,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C0743FF15E2099533C350D979994ECBB</key>
+		<key>C2E6BA4EEF556C38330EBD52E342ABA7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C5A2DB7A84B7B78E359870D2E1B24AA7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>DDBCFDE490CDFDABF6F16A26F346932D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E4DD95323C54A78F879DAB0F1508B8E7</key>
 		<dict>
 			<key>primary</key>
 			<true/>

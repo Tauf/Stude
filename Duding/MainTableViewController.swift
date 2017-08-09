@@ -54,7 +54,7 @@ class MainTableViewController: UITableViewController {
     cellHeights = Array(repeating: kCloseCellHeight, count: kRowsCount)
     tableView.estimatedRowHeight = kCloseCellHeight
     tableView.rowHeight = UITableViewAutomaticDimension
-    tableView.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "background"))
+    tableView.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "Screen Shot 2017-08-08 at 1.22.22 AM"))
   }
   
 }
@@ -78,16 +78,16 @@ extension MainTableViewController {
     cell.backgroundColor = .clear
     
     if cellHeights[indexPath.row] == kCloseCellHeight {
-      cell.selectedAnimation(false, animated: false, completion:nil)
+      cell.unfold(false, animated: false, completion:nil)
     } else {
-      cell.selectedAnimation(true, animated: false, completion: nil)
+      cell.unfold(true, animated: false, completion: nil)
     }
     
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "FoldingCell", for: indexPath) as! DemoCell
-    let durations: [TimeInterval] = [0.26, 0.2, 0.2]
+    let durations: [TimeInterval] = [1.56, 1.5, 1.5]
     cell.durationsForExpandedState = durations
     cell.durationsForCollapsedState = durations
 
@@ -105,7 +105,7 @@ extension MainTableViewController {
     
     cell.locationNameField2?.text = groceryItem.locationNameField
     
-    cell.rankField?.text = groceryItem.rankField
+    cell.rankField?.text = "\(groceryItem.rankField)"
     
    //cell.relativeDayField?.text = groceryItem.creator
     
@@ -145,11 +145,6 @@ extension MainTableViewController {
     cell.creatorNameField?.text = groceryItem.creatorNameField
     //cell.leftSpotsField?.text = groceryItem.titleField
     
-
-
-    
-    
- 
     return cell
   }
   
@@ -169,12 +164,12 @@ extension MainTableViewController {
     let cellIsCollapsed = cellHeights[indexPath.row] == kCloseCellHeight
     if cellIsCollapsed {
       cellHeights[indexPath.row] = kOpenCellHeight
-      cell.selectedAnimation(true, animated: true, completion: nil)
-      duration = 0.5
+      cell.unfold(true, animated: true, completion: nil)
+      duration = 1
     } else {
       cellHeights[indexPath.row] = kCloseCellHeight
-      cell.selectedAnimation(false, animated: true, completion: nil)
-      duration = 0.8
+      cell.unfold(false, animated: true, completion: nil)
+      duration = 1.6
     }
     
     UIView.animate(withDuration: duration, delay: 0, options: .curveEaseOut, animations: { () -> Void in

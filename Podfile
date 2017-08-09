@@ -19,5 +19,6 @@ target 'Duding' do
   pod 'FoldingCell'
   pod 'Eureka'
   pod 'SwiftVideoBackground'
+  pod 'FSCalendar'
 
 end

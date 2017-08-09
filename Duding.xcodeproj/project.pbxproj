@@ -23,6 +23,7 @@
 		F6A10EE81F38FD4000FA7F95 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A10EE51F38FD4000FA7F95 /* ResetPasswordViewController.swift */; };
 		F6A10EEB1F38FDD800FA7F95 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A10EEA1F38FDD800FA7F95 /* HomeViewController.swift */; };
 		F6A10EED1F3901F300FA7F95 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F6A10EEC1F3901F300FA7F95 /* GoogleService-Info.plist */; };
+		F6A10EF21F398BAA00FA7F95 /* Background.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F6A10EF11F398BAA00FA7F95 /* Background.mp4 */; };
 		F6FDED631EE86B02005147F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FDED621EE86B02005147F6 /* AppDelegate.swift */; };
 		F6FDED651EE86B02005147F6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FDED641EE86B02005147F6 /* ViewController.swift */; };
 		F6FDED681EE86B02005147F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6FDED661EE86B02005147F6 /* Main.storyboard */; };
@@ -50,7 +51,7 @@
 		F6A10EE51F38FD4000FA7F95 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		F6A10EEA1F38FDD800FA7F95 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F6A10EEC1F3901F300FA7F95 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		F6A10EEE1F39109C00FA7F95 /* Background.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Background.mp4; sourceTree = "<group>"; };
+		F6A10EF11F398BAA00FA7F95 /* Background.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Background.mp4; sourceTree = "<group>"; };
 		F6FDED5F1EE86B02005147F6 /* Duding.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Duding.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6FDED621EE86B02005147F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6FDED641EE86B02005147F6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -123,16 +124,16 @@
 				F64BA6441EEDC677009FC35D /* FloatLabelTextField.swift */,
 				F61785D61EEA54CD00AFB80B /* NewStudy.swift */,
 				F696573B1EEB246D004C1CC8 /* LocationPicker.swift */,
-				F6A10EE41F38FD4000FA7F95 /* LoginViewController.swift */,
-				F6A10EE51F38FD4000FA7F95 /* ResetPasswordViewController.swift */,
 				F6FDED621EE86B02005147F6 /* AppDelegate.swift */,
 				F64BA5B01EEDC501009FC35D /* newPost.swift */,
 				F6FDED641EE86B02005147F6 /* ViewController.swift */,
 				F6A10EEA1F38FDD800FA7F95 /* HomeViewController.swift */,
+				F6A10EE51F38FD4000FA7F95 /* ResetPasswordViewController.swift */,
+				F6A10EE41F38FD4000FA7F95 /* LoginViewController.swift */,
 				F6A10EE21F38FD2E00FA7F95 /* SignUpViewController.swift */,
 				F6FDED661EE86B02005147F6 /* Main.storyboard */,
 				F6FDED691EE86B02005147F6 /* Assets.xcassets */,
-				F6A10EEE1F39109C00FA7F95 /* Background.mp4 */,
+				F6A10EF11F398BAA00FA7F95 /* Background.mp4 */,
 				F6FDED6B1EE86B02005147F6 /* LaunchScreen.storyboard */,
 				F6FDED6E1EE86B02005147F6 /* Info.plist */,
 				F6A10EEC1F3901F300FA7F95 /* GoogleService-Info.plist */,
@@ -254,6 +255,7 @@
 				F6FDED781EE896F0005147F6 /* Default-568h@2x.png in Resources */,
 				F6FDED681EE86B02005147F6 /* Main.storyboard in Resources */,
 				F6A10EED1F3901F300FA7F95 /* GoogleService-Info.plist in Resources */,
+				F6A10EF21F398BAA00FA7F95 /* Background.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

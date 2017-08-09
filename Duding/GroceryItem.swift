@@ -14,7 +14,7 @@ struct GroceryItem {
     var locationNameField: String
     
     
-    var rankField: String
+    var rankField: Int
     
     var timeField: String
     
@@ -61,7 +61,7 @@ struct GroceryItem {
          locationNameField: String,
          
          
-         rankField: String,
+         rankField: Int,
          
          timeField: String,
          
@@ -142,7 +142,7 @@ struct GroceryItem {
         locationNameField = "empty"
         
         
-        rankField = "empty"
+        rankField = 0
         
         timeField = "empty"
         
@@ -195,7 +195,7 @@ struct GroceryItem {
                 locationNameField = snapshotValue["locationNameField"] as! String
                 
                 
-                rankField = snapshotValue["rankField"] as! String
+                rankField = (snapshotValue["rankField"]! as! NSString).integerValue
                 
                 timeField = snapshotValue["timeField"] as! String
                 

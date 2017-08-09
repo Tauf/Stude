@@ -2,9 +2,25 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import SwiftVideoBackground
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var backgroundVideo: BackgroundVideo!
+    
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        backgroundVideo.createBackgroundVideo(name: "Background", type: "mp4", alpha: 0.2)
+    }
+    
+    
+    override func viewDidLoad() {
+        
+        
+        super.viewDidLoad()
+        
+    }
 
     //Outlets
     @IBOutlet weak var emailTextField: UITextField!
