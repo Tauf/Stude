@@ -14,7 +14,6 @@
 		F601BEBD1F3C9F200045719B /* ChannelListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F601BEAD1F3C9F200045719B /* ChannelListViewController.swift */; };
 		F601BEBE1F3C9F200045719B /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F601BEB01F3C9F200045719B /* ChatViewController.swift */; };
 		F601BEBF1F3C9F200045719B /* CreateChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F601BEB11F3C9F200045719B /* CreateChannelCell.swift */; };
-		F601BEC31F3C9F200045719B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F601BEB51F3C9F200045719B /* LoginViewController.swift */; };
 		F601BEC41F3C9F200045719B /* m.m in Sources */ = {isa = PBXBuildFile; fileRef = F601BEB61F3C9F200045719B /* m.m */; };
 		F601BEC51F3C9F200045719B /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = F601BEB71F3C9F200045719B /* UIImage+Gif.swift */; };
 		F61785D71EEA54CD00AFB80B /* NewStudy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61785D61EEA54CD00AFB80B /* NewStudy.swift */; };
@@ -53,7 +52,6 @@
 		F601BEAE1F3C9F200045719B /* ChatChat-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ChatChat-Bridging-Header.h"; sourceTree = "<group>"; };
 		F601BEB01F3C9F200045719B /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		F601BEB11F3C9F200045719B /* CreateChannelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateChannelCell.swift; sourceTree = "<group>"; };
-		F601BEB51F3C9F200045719B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F601BEB61F3C9F200045719B /* m.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = m.m; sourceTree = "<group>"; };
 		F601BEB71F3C9F200045719B /* UIImage+Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Gif.swift"; sourceTree = "<group>"; };
 		F61785D61EEA54CD00AFB80B /* NewStudy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewStudy.swift; sourceTree = "<group>"; };
@@ -122,7 +120,6 @@
 				F601BEAE1F3C9F200045719B /* ChatChat-Bridging-Header.h */,
 				F601BEB01F3C9F200045719B /* ChatViewController.swift */,
 				F601BEB11F3C9F200045719B /* CreateChannelCell.swift */,
-				F601BEB51F3C9F200045719B /* LoginViewController.swift */,
 				F601BEB61F3C9F200045719B /* m.m */,
 				F601BEB71F3C9F200045719B /* UIImage+Gif.swift */,
 			);
@@ -368,7 +365,6 @@
 				F64BA6451EEDC677009FC35D /* FloatLabelTextField.swift in Sources */,
 				F6FDED631EE86B02005147F6 /* AppDelegate.swift in Sources */,
 				F601BEBD1F3C9F200045719B /* ChannelListViewController.swift in Sources */,
-				F601BEC31F3C9F200045719B /* LoginViewController.swift in Sources */,
 				F64BA6411EEDC643009FC35D /* ImageRow.swift in Sources */,
 				F64BA5B11EEDC501009FC35D /* newPost.swift in Sources */,
 				F64BA6431EEDC659009FC35D /* ImagePickerController.swift in Sources */,
@@ -581,6 +577,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.parsataleb.duding;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

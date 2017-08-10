@@ -34,10 +34,10 @@ class ChannelListViewController: UITableViewController {
   var senderDisplayName: String?
   var newChannelTextField: UITextField?
   
-  private var channelRefHandle: FIRDatabaseHandle?
+  private var channelRefHandle: DatabaseHandle?
   private var channels: [Channel] = []
   
-  private lazy var channelRef: FIRDatabaseReference = FIRDatabase.database().reference().child("channels")
+  private lazy var channelRef: DatabaseReference = Database.database().reference().child("channels")
   
   // MARK: View Lifecycle
   
