@@ -96,9 +96,7 @@ class newPost:FormViewController {
         CheckRow.defaultCellSetup = { cell, row in cell.tintColor = .orange }
         DateRow.defaultRowInitializer = { row in row.minimumDate = Date() }
         
-        form +++
-            
-            Section()
+        form +++ Section()
             
             <<< TextRow("titleTag") {
                 $0.title = "Title"

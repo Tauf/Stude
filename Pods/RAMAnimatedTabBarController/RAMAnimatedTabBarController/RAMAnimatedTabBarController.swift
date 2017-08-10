@@ -75,8 +75,7 @@ open class RAMAnimatedTabBarItem: UITabBarItem {
   /// The tint color of the UITabBarItem icon.
   @IBInspectable open var iconColor: UIColor = UIColor.clear // if alpha color is 0 color ignoring
   
-  var bgDefaultColor: UIColor = UIColor(red: 71/255, green: 125/255, blue: 103/255, alpha: 0.75)   //.clear// background color
-
+  var bgDefaultColor: UIColor = UIColor.clear // background color
   var bgSelectedColor: UIColor = UIColor.clear
   
   //  The current badge value
@@ -252,8 +251,6 @@ open class RAMAnimatedTabBarController: UITabBarController {
     self.didLoadView = true
     
     self.initializeContainers()
-    
-
   }
   
   fileprivate func initializeContainers() {
