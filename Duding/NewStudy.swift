@@ -133,7 +133,7 @@ class NewStudy: UIViewController {
         
         let config = GMSPlacePickerConfig(viewport: nil)
         let placePicker = GMSPlacePickerViewController(config: config)
-        placePicker.delegate = self as! GMSPlacePickerViewControllerDelegate
+        placePicker.delegate = self as? GMSPlacePickerViewControllerDelegate
         
         placePicker.modalPresentationStyle = .popover
         placePicker.popoverPresentationController?.sourceView = locationField

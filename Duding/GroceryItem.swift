@@ -8,7 +8,7 @@ struct GroceryItem {
     var ref: DatabaseReference?
     let key: String
     
-  
+    
     var titleField: String
     
     var locationNameField: String
@@ -53,7 +53,7 @@ struct GroceryItem {
     
     var longDescriptionField: String
     
-
+    
     
     init(creatorNameField: String,
          titleField: String,
@@ -177,16 +177,9 @@ struct GroceryItem {
         availableSpotsField = "empty"
         
         
-        
-        
-        
-        
-        
-        
-        
         for childSnap in  snapshot.children.allObjects {
             let snap = childSnap as! DataSnapshot
-            if let snapshotValue = snapshot.value as? NSDictionary, let snapVal = snapshotValue[snap.key] as? AnyObject {
+            if let snapshotValue = snapshot.value as? NSDictionary, let _ = snapshotValue[snap.key] as? AnyObject {
                 
                 
                 
@@ -244,43 +237,43 @@ struct GroceryItem {
     
     func toAnyObject() -> Any {
         return [
-
-             "titleField" : titleField,
             
-             "locationNameField" : locationNameField,
+            "titleField" : titleField,
             
-             "rankField" : rankField,
+            "locationNameField" : locationNameField,
             
-             "timeField" : timeField,
+            "rankField" : rankField,
             
-             "deadlineField" : deadlineField,
+            "timeField" : timeField,
             
-             "priceField" : priceField,
+            "deadlineField" : deadlineField,
             
-             "eventDateField" : eventDateField,
+            "priceField" : priceField,
             
-             "approvedRequestsCountField" : approvedRequestsCountField,
+            "eventDateField" : eventDateField,
             
-             "creatorNameField" : creatorNameField,
+            "approvedRequestsCountField" : approvedRequestsCountField,
             
-             "creatorIDField" : creatorIDField,
+            "creatorNameField" : creatorNameField,
             
-             "attendiesField" : attendiesField,
+            "creatorIDField" : creatorIDField,
             
-             "shortDescriptionField" : shortDescriptionField,
+            "attendiesField" : attendiesField,
             
-             "longDescriptionField" : longDescriptionField,
+            "shortDescriptionField" : shortDescriptionField,
             
-             "startTimeField" : startTimeField,
+            "longDescriptionField" : longDescriptionField,
             
-             "endTimeField" : endTimeField,
+            "startTimeField" : startTimeField,
             
-             "addressField" : addressField,
+            "endTimeField" : endTimeField,
             
-             "availableSpotsField" : availableSpotsField,
+            "addressField" : addressField,
+            
+            "availableSpotsField" : availableSpotsField,
+            
+        ]
         
-    ]
-    
     }
     
 }

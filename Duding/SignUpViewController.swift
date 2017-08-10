@@ -11,11 +11,9 @@ import Firebase
 import FirebaseAuth
 import SwiftVideoBackground
 
-
 class SignUpViewController: UIViewController {
 
     @IBOutlet weak var backgroundVideo: BackgroundVideo!
-    
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -25,8 +23,6 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
     }
     
     //Outlets

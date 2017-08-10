@@ -10,8 +10,10 @@ import UIKit
 import FoldingCell
 
 class DemoCell:  FoldingCell  {
-  
-
+    
+    
+    
+    @IBOutlet weak var joinButtonOutlet: UIButton!
     @IBOutlet weak var titleField: UILabel!
     
     @IBOutlet weak var titleField2: UILabel!
@@ -60,26 +62,36 @@ class DemoCell:  FoldingCell  {
     
     @IBOutlet weak var creatorNameField: UILabel!
     
-  override func awakeFromNib() {
-    foregroundView.layer.cornerRadius = 10
-    foregroundView.layer.masksToBounds = true
-    super.awakeFromNib()
-  }
-  
-  override func animationDuration(_ itemIndex: NSInteger, type: FoldingCell.AnimationType) -> TimeInterval {
-    let durations = [0.26, 0.2, 0.2]
-    return durations[itemIndex]
-  }
-  
+    override func awakeFromNib() {
+        foregroundView.layer.cornerRadius = 10
+        foregroundView.layer.masksToBounds = true
+        super.awakeFromNib()
+    }
+    
+    override func animationDuration(_ itemIndex: NSInteger, type: FoldingCell.AnimationType) -> TimeInterval {
+        let durations = [0.26*2.5, 0.2*2.5, 0.2*2.5]
+        return durations[itemIndex]
+    }
+    
 }
 
 // MARK: - Actions ⚡️
 extension DemoCell {
-  
-  @IBAction func buttonHandler(_ sender: AnyObject) {
-    print("tap")
-  }
     
+    
+    @IBAction func buttonHandler(_ sender: AnyObject) {
+        if joinButtonOutlet.titleLabel!.text == "Send A Request to Join" {
+            joinButtonOutlet.setTitle("Your request is pending host approval, also .edu email confirmation is required...", for: .normal)
+            joinButtonOutlet.isHighlighted = true
+        }
+        else{
+            joinButtonOutlet.setTitle("Send A Request to Join", for: .normal)
+            joinButtonOutlet.isHighlighted = false
 
-  
+            
+        }
+    }
+    
+    
+    
 }

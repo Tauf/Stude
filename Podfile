@@ -8,6 +8,9 @@ target 'Duding' do
   pod 'FirebaseUI/Database'
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
+  pod 'Firebase/Storage'
+  pod 'Firebase/RemoteConfig'
+  pod 'JSQMessagesViewController'
   pod 'FacebookCore'
   pod 'FacebookLogin'
   pod 'FacebookShare'
@@ -20,5 +23,6 @@ target 'Duding' do
   pod 'Eureka'
   pod 'SwiftVideoBackground'
   pod 'FSCalendar'
+  pod 'RAMAnimatedTabBarController', "~> 2.0.13"
 
 end

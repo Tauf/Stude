@@ -24,28 +24,68 @@ let 👦🏼 = "👦🏼", 🍐 = "🍐", 💁🏻 = "💁🏻", 🐗 = "🐗", 
 class newPost:FormViewController {
     
     
-    let ref = Database.database().reference(withPath: "/")
     
-    let ref2 = Database.database().reference(withPath: "/studyGroups/activePosts")
     
     var rankField = 0 //: Int
-
-
     
+    
+    var sagee2 : String = ""
     
     
     
     var placesClient: GMSPlacesClient!
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let targetController = segue.destination as! MainTableViewController
+        
+        targetController.sagee = self.sagee2
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        var ref2: DatabaseReference
+        
+        if sagee2 == "study"
+        {
+            ref2 = Database.database().reference(withPath: "/studyGroups/activePosts")
+            
+            self.navigationItem.title = "New Study Group"
+            
+
+            
+        }
+        else if sagee2 == "hang"
+        {
+            
+            ref2 = Database.database().reference(withPath: "/hangouts/activePosts")
+            
+            self.navigationItem.title = "New Hangout"
+            
+        }
+        else if sagee2 == "local"
+        {
+            
+            ref2 = Database.database().reference(withPath: "/localEvents/activePosts")
+            
+            self.navigationItem.title = "New Local Event"
+            
+        }
+        else
+        {
+            
+            ref2 = Database.database().reference(withPath: "/athleticEvents/activePosts")
+            
+            self.navigationItem.title = "New Athletic Event"
+            
+        }
+        
+        
+        
         ref2.observe(.value, with: { (snapshot: DataSnapshot!) in
             self.rankField = Int(snapshot.childrenCount) + 1
             
-            print("avval")
-            print(self.rankField)
         })
         
         
@@ -67,7 +107,6 @@ class newPost:FormViewController {
             
             
             
-            
             <<< DateRow("eventDateTag") {
                 
                 $0.value = Date()
@@ -77,15 +116,16 @@ class newPost:FormViewController {
             
             <<< TimeRow("startTimeTag") {
                 $0.title = "Start Time"
+                
                 $0.value = Date().addingTimeInterval(60*60*24)
                 }
                 .onChange { [weak self] row in
-                    let endRow: DateTimeInlineRow! = self?.form.rowBy(tag: "endTimeTag")
-                    if row.value?.compare(endRow.value!) == .orderedDescending {
-                        endRow.value = Date(timeInterval: 60*60*24, since: row.value!)
-                        endRow.cell!.backgroundColor = .white
-                        endRow.updateCell()
-                    }
+                    //let endRow: DateTimeInlineRow! = self?.form.rowBy(tag: "endTimeTag")
+                    //if row.value?.compare(endRow.value!) == .orderedDescending {
+                    //endRow.value = Date(timeInterval: 60*60*24, since: row.value!)
+                    //endRow.cell!.backgroundColor = .white
+                    row.updateCell()
+                    //}
             }
             
             
@@ -94,13 +134,13 @@ class newPost:FormViewController {
                 $0.value = Date().addingTimeInterval(60*60*25)
                 }
                 .onChange { [weak self] row in
-                    let startRow: DateTimeInlineRow! = self?.form.rowBy(tag: "startTimeTag")
-                    if row.value?.compare(startRow.value!) == .orderedAscending {
-                        row.cell!.backgroundColor = .red
-                    }
-                    else{
-                        row.cell!.backgroundColor = .white
-                    }
+                    //                    let startRow: DateTimeInlineRow! = self?.form.rowBy(tag: "startTimeTag")
+                    //                    if row.value?.compare(startRow.value!) == .orderedAscending {
+                    //                        row.cell!.backgroundColor = .red
+                    //                    }
+                    //                    else{
+                    //                        row.cell!.backgroundColor = .white
+                    //                    }
                     row.updateCell()
             }
             
@@ -212,6 +252,12 @@ class newPost:FormViewController {
     @IBAction func newItemDoneTapped(_ sender: Any) {
         
         
+        
+        
+        
+        let calendar = NSCalendar.autoupdatingCurrent
+        
+        
         //        let alert = UIAlertController(title: "Confirmation",
         //                                      message: "Please confirm your new post.",
         //                                      preferredStyle: .alert)
@@ -226,77 +272,151 @@ class newPost:FormViewController {
         var row: TextRow?
         
         row = self.form.rowBy(tag: "titleTag")
-        let titleValue = row?.value
+        let titleValue = row?.value ?? "untitled"
         
         row = self.form.rowBy(tag: "shortDescriptionTag")
-        let shortDescriptionValue = row?.value
+        let shortDescriptionValue = row?.value ?? "no summary"
         var row2: StepperRow?
         
         row2 = self.form.rowBy(tag: "availableSpotsTag")
-        
-        let availableSpotsValue = row2?.value
+        let availableSpotsValue = row2?.value ?? 1
         
         var row3: DateRow?
-        
         row3 = self.form.rowBy(tag: "eventDateTag")
-        let eventDateValue = row3?.value
+        let eventDateValue_temp = row3?.value
+        
+        let dateComponents_4 = calendar.dateComponents([.month, .year, .day], from: eventDateValue_temp!)
+        let eventDateValue =  "\(String(describing: dateComponents_4.month!))/\(String(describing: dateComponents_4.day!))/\(String(describing: dateComponents_4.year!))"
+        
+        
+        
         
         row3 = self.form.rowBy(tag: "deadlineTag")
-        let deadlineValue = row3?.value
+        let deadlineValue_temp = row3?.value
+        
+        let dateComponents_3 = calendar.dateComponents([.month, .year, .day], from: deadlineValue_temp!)
+        let deadlineValue =  "\(String(describing: dateComponents_3.month!))/\(String(describing: dateComponents_3.day!))/\(String(describing: dateComponents_3.year!))"
+        
+        
         
         var row4: TimeRow?
         
         row4 = self.form.rowBy(tag: "startTimeTag")
-        let startTimeValue = row4?.value
+        let startTimeValue_temp = row4?.value
+        
+        let dateComponents = calendar.dateComponents([.hour, .minute], from: startTimeValue_temp!)
+        let startTimeValue =  "\(String(describing: dateComponents.hour!)):\(String(describing: dateComponents.minute!))"
+        
+        
         
         row4 = self.form.rowBy(tag: "endTimeTag")
-        let endTimeValue = row4?.value
+        let endTimeValue_temp = row4?.value
+        
+        let dateComponents_2 = calendar.dateComponents([.hour, .minute], from: endTimeValue_temp!)
+        let endTimeValue =  "\(String(describing: dateComponents_2.hour!)):\(String(describing: dateComponents_2.minute!))"
+        
+        
         
         var row5: TextAreaRow?
         row5 = self.form.rowBy(tag: "longDescriptionTag")
-        let longDescriptionValue = row5?.value
+        let longDescriptionValue = row5?.value ?? "undescribed"
         
+        
+        
+        let user = Auth.auth().currentUser
+        if let user = user {
+            
+            let email = user.email
+            
+            var token = email?.components(separatedBy: "@")
+            let userName = token?[0] ?? "no username"
+            
+            //let photoURL = user.photoURL
+            
+            let userID = Auth.auth().currentUser?.uid
+            
+            
+            
+            
+            
+            let groceryItem : Dictionary<String, Any> = ["creatorNameField": "\(userName)", "titleField": titleValue, "locationNameField": "unlocated", "rankField":"\(rankField)" , "timeField": "\(startTimeValue)", "deadlineField": "\(deadlineValue)", "priceField": "Free", "eventDateField": "\(eventDateValue)", "approvedRequestsCountField": "0", "attendiesField": "unknown", "shortDescriptionField": "\(shortDescriptionValue)", "creatorIDField": "unknown", "startTimeField": "\(startTimeValue)", "endTimeField": "\(endTimeValue)", "addressField": "unknown", "longDescriptionField": "\(longDescriptionValue)", "availableSpotsField": "\(availableSpotsValue)"]
+            
+            
+            let ref = Database.database().reference(withPath: "/")
+            
+            var key = ref.child("studyGroups/activePosts/").childByAutoId().key
+            var childUpdates = ["studyGroups/activePosts/\(key)": groceryItem,
+                                    "users/\(String(describing: userID))/\(key)/": groceryItem]
+            
+            if sagee2 == "study"
+            {
+                
+                key = ref.child("studyGroups/activePosts/").childByAutoId().key
+                childUpdates = ["studyGroups/activePosts/\(key)": groceryItem,
+                                "users/\(String(describing: userID))/\(key)/": groceryItem]
+                
 
 
-        
-        
-        print("dovvom")
-        print(rankField)
-        
-        let groceryItem : Dictionary<String, Any> = ["creatorNameField": "unknown", "titleField": titleValue!, "locationNameField": "unknown", "rankField":"\(rankField)" , "timeField": "unknown", "deadlineField": "\(deadlineValue!)", "priceField": "Free", "eventDateField": "\(eventDateValue!)", "approvedRequestsCountField": "unknown", "attendiesField": "unknown", "shortDescriptionField": "\(shortDescriptionValue!)", "creatorIDField": "unknown", "startTimeField": "\(startTimeValue!)", "endTimeField": "\(endTimeValue!)", "addressField": "unknown", "longDescriptionField": "\(longDescriptionValue!)", "availableSpotsField": "\(availableSpotsValue!)"]
-        
-        
-        
-        let key = ref.child("studyGroups/activePosts/").childByAutoId().key
-        
-        let userID = Auth.auth().currentUser?.uid
-        
-        let childUpdates = ["studyGroups/activePosts/\(key)": groceryItem,
-                            "users/\(String(describing: userID))/\(key)/": groceryItem]
-        ref.updateChildValues(childUpdates)
-        
-        
-        //let groceryItemRef = self.ref.child("IDK")
-        
-        // 4
-        //groceryItemRef.setValue(groceryItem.toAnyObject())
-        
-        //self.performSegue(withIdentifier: "mySegueID", sender: nil)
-        
-        
-        //        }
-        
-        //        let cancelAction = UIAlertAction(title: "Cancel",
-        //                                         style: .default)
-        
-        
-        //        alert.addAction(saveAction)
-        //        alert.addAction(cancelAction)
-        //
-        //        present(alert, animated: true, completion: nil)
-        //
-        //
-        
+                
+                
+            }
+            else if sagee2 == "hang"
+            {
+                
+                key = ref.child("hangouts/activePosts/").childByAutoId().key
+                childUpdates = ["hangouts/activePosts/\(key)": groceryItem,
+                                "users/\(String(describing: userID))/\(key)/": groceryItem]
+                
+                
+                
+                
+                
+            }
+            else if sagee2 == "local"
+            {
+                
+                key = ref.child("localEvents/activePosts/").childByAutoId().key
+                childUpdates = ["localEvents/activePosts/\(key)": groceryItem,
+                                "users/\(String(describing: userID))/\(key)/": groceryItem]
+                
+                
+                
+            }
+            else
+            {
+                
+                key = ref.child("athleticEvents/activePosts/").childByAutoId().key
+                childUpdates = ["athleticEvents/activePosts/\(key)": groceryItem,
+                                "users/\(String(describing: userID))/\(key)/": groceryItem]
+                
+                
+            }
+ 
+            
+            ref.updateChildValues(childUpdates)
+            
+            
+            //let groceryItemRef = self.ref.child("IDK")
+            
+            // 4
+            //groceryItemRef.setValue(groceryItem.toAnyObject())
+            
+            //self.performSegue(withIdentifier: "mySegueID", sender: nil)
+            
+            
+            //        }
+            
+            //        let cancelAction = UIAlertAction(title: "Cancel",
+            //                                         style: .default)
+            
+            
+            //        alert.addAction(saveAction)
+            //        alert.addAction(cancelAction)
+            //
+            //        present(alert, animated: true, completion: nil)
+            //
+            //
+        }
         
     }
     
@@ -305,8 +425,8 @@ class newPost:FormViewController {
         viewController.dismiss(animated: true, completion: nil)
         
         print("Place name \(place.name)")
-        print("Place address \(place.formattedAddress)")
-        print("Place attributions \(place.attributions)")
+        print("Place address \(String(describing: place.formattedAddress))")
+        print("Place attributions \(String(describing: place.attributions))")
     }
     
     func placePickerDidCancel(_ viewController: GMSPlacePickerViewController) {
@@ -319,6 +439,8 @@ class newPost:FormViewController {
     func multipleSelectorDone(_ item:UIBarButtonItem) {
         _ = navigationController?.popViewController(animated: true)
     }
+    
+    
     
 }
 
