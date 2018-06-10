@@ -21,7 +21,7 @@ let 👦🏼 = "👦🏼", 🍐 = "🍐", 💁🏻 = "💁🏻", 🐗 = "🐗", 
 
 
 
-class newPost:FormViewController {
+class newPost : FormViewController {
     
     
     
@@ -91,12 +91,14 @@ class newPost:FormViewController {
         
         placesClient = GMSPlacesClient.shared()
         
+        
         URLRow.defaultCellUpdate = { cell, row in cell.textField.textColor = .orange }
         LabelRow.defaultCellUpdate = { cell, row in cell.detailTextLabel?.textColor = .orange  }
         CheckRow.defaultCellSetup = { cell, row in cell.tintColor = .orange }
         DateRow.defaultRowInitializer = { row in row.minimumDate = Date() }
         
-        form +++ Section()
+        form +++
+            Section()
             
             <<< TextRow("titleTag") {
                 $0.title = "Title"

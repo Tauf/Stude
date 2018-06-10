@@ -9,13 +9,6 @@
 /* Begin PBXBuildFile section */
 		724019CD379FC47527A97274 /* Pods_Duding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 491F272A9C6655A62BA97418 /* Pods_Duding.framework */; };
 		F601BE201F3C15EB0045719B /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F601BE1F1F3C15EB0045719B /* CategoryViewController.swift */; };
-		F601BEBB1F3C9F200045719B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F601BEAA1F3C9F200045719B /* Main.storyboard */; };
-		F601BEBC1F3C9F200045719B /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F601BEAC1F3C9F200045719B /* Channel.swift */; };
-		F601BEBD1F3C9F200045719B /* ChannelListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F601BEAD1F3C9F200045719B /* ChannelListViewController.swift */; };
-		F601BEBE1F3C9F200045719B /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F601BEB01F3C9F200045719B /* ChatViewController.swift */; };
-		F601BEBF1F3C9F200045719B /* CreateChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F601BEB11F3C9F200045719B /* CreateChannelCell.swift */; };
-		F601BEC41F3C9F200045719B /* m.m in Sources */ = {isa = PBXBuildFile; fileRef = F601BEB61F3C9F200045719B /* m.m */; };
-		F601BEC51F3C9F200045719B /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = F601BEB71F3C9F200045719B /* UIImage+Gif.swift */; };
 		F61785D71EEA54CD00AFB80B /* NewStudy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61785D61EEA54CD00AFB80B /* NewStudy.swift */; };
 		F64BA5B11EEDC501009FC35D /* newPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64BA5B01EEDC501009FC35D /* newPost.swift */; };
 		F64BA63F1EEDC639009FC35D /* CustomCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64BA63E1EEDC639009FC35D /* CustomCells.swift */; };
@@ -46,14 +39,6 @@
 		609B81803333320643B501E8 /* Pods-Duding.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Duding.release.xcconfig"; path = "Pods/Target Support Files/Pods-Duding/Pods-Duding.release.xcconfig"; sourceTree = "<group>"; };
 		62C062C13472FA651C1421F5 /* Pods-Duding.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Duding.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Duding/Pods-Duding.debug.xcconfig"; sourceTree = "<group>"; };
 		F601BE1F1F3C15EB0045719B /* CategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
-		F601BEAB1F3C9F200045719B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		F601BEAC1F3C9F200045719B /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
-		F601BEAD1F3C9F200045719B /* ChannelListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelListViewController.swift; sourceTree = "<group>"; };
-		F601BEAE1F3C9F200045719B /* ChatChat-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ChatChat-Bridging-Header.h"; sourceTree = "<group>"; };
-		F601BEB01F3C9F200045719B /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
-		F601BEB11F3C9F200045719B /* CreateChannelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateChannelCell.swift; sourceTree = "<group>"; };
-		F601BEB61F3C9F200045719B /* m.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = m.m; sourceTree = "<group>"; };
-		F601BEB71F3C9F200045719B /* UIImage+Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Gif.swift"; sourceTree = "<group>"; };
 		F61785D61EEA54CD00AFB80B /* NewStudy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewStudy.swift; sourceTree = "<group>"; };
 		F64BA5B01EEDC501009FC35D /* newPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = newPost.swift; sourceTree = "<group>"; };
 		F64BA63E1EEDC639009FC35D /* CustomCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCells.swift; sourceTree = "<group>"; };
@@ -111,21 +96,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		F601BEA51F3C9F200045719B /* ChatChat */ = {
-			isa = PBXGroup;
-			children = (
-				F601BEAA1F3C9F200045719B /* Main.storyboard */,
-				F601BEAC1F3C9F200045719B /* Channel.swift */,
-				F601BEAD1F3C9F200045719B /* ChannelListViewController.swift */,
-				F601BEAE1F3C9F200045719B /* ChatChat-Bridging-Header.h */,
-				F601BEB01F3C9F200045719B /* ChatViewController.swift */,
-				F601BEB11F3C9F200045719B /* CreateChannelCell.swift */,
-				F601BEB61F3C9F200045719B /* m.m */,
-				F601BEB71F3C9F200045719B /* UIImage+Gif.swift */,
-			);
-			path = ChatChat;
-			sourceTree = "<group>";
-		};
 		F6FDED561EE86B02005147F6 = {
 			isa = PBXGroup;
 			children = (
@@ -168,7 +138,6 @@
 				F6A10EE21F38FD2E00FA7F95 /* SignUpViewController.swift */,
 				F68519D61F3BAC2B00E4745F /* FSCalendarScopeViewController.swift */,
 				F6FDED661EE86B02005147F6 /* Main.storyboard */,
-				F601BEA51F3C9F200045719B /* ChatChat */,
 				F6FDED691EE86B02005147F6 /* Assets.xcassets */,
 				F6A10EF11F398BAA00FA7F95 /* Background.mp4 */,
 				F6FDED6B1EE86B02005147F6 /* LaunchScreen.storyboard */,
@@ -291,7 +260,6 @@
 				F6FDED6A1EE86B02005147F6 /* Assets.xcassets in Resources */,
 				F6FDED781EE896F0005147F6 /* Default-568h@2x.png in Resources */,
 				F6FDED681EE86B02005147F6 /* Main.storyboard in Resources */,
-				F601BEBB1F3C9F200045719B /* Main.storyboard in Resources */,
 				F6A10EED1F3901F300FA7F95 /* GoogleService-Info.plist in Resources */,
 				F6A10EF21F398BAA00FA7F95 /* Background.mp4 in Resources */,
 			);
@@ -353,18 +321,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6A10EE71F38FD4000FA7F95 /* LoginViewController.swift in Sources */,
-				F601BEBF1F3C9F200045719B /* CreateChannelCell.swift in Sources */,
-				F601BEBC1F3C9F200045719B /* Channel.swift in Sources */,
-				F601BEBE1F3C9F200045719B /* ChatViewController.swift in Sources */,
-				F601BEC51F3C9F200045719B /* UIImage+Gif.swift in Sources */,
 				F65BE8C01EECF799002E7BB1 /* MainTableViewController.swift in Sources */,
 				F6FDED651EE86B02005147F6 /* ViewController.swift in Sources */,
 				F61785D71EEA54CD00AFB80B /* NewStudy.swift in Sources */,
 				F696573C1EEB246D004C1CC8 /* LocationPicker.swift in Sources */,
-				F601BEC41F3C9F200045719B /* m.m in Sources */,
 				F64BA6451EEDC677009FC35D /* FloatLabelTextField.swift in Sources */,
 				F6FDED631EE86B02005147F6 /* AppDelegate.swift in Sources */,
-				F601BEBD1F3C9F200045719B /* ChannelListViewController.swift in Sources */,
 				F64BA6411EEDC643009FC35D /* ImageRow.swift in Sources */,
 				F64BA5B11EEDC501009FC35D /* newPost.swift in Sources */,
 				F64BA6431EEDC659009FC35D /* ImagePickerController.swift in Sources */,
@@ -382,14 +344,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		F601BEAA1F3C9F200045719B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F601BEAB1F3C9F200045719B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F6FDED661EE86B02005147F6 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -542,7 +496,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.parsataleb.duding;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -577,9 +531,9 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.parsataleb.duding;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
